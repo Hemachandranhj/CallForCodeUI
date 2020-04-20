@@ -27,7 +27,7 @@
                             "src/favicon.ico",
                             "src/assets",
                             "src/manifest.yml",
-                            "src/StaticFile.txt"
+                            "src/Staticfile"
                         ],
                         "styles": [
                             "./node_modules/bootstrap/dist/css/bootstrap.css",
