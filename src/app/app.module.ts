@@ -10,12 +10,15 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { AuthGuardService } from "./services/auth-guard.service";
 import { AuthenticationService } from "./services/authentication.service";
 import { HomeComponent } from "./components/home/home.component";
+import { CardDetailsComponent } from './components/card-details/card-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AssistanceService } from './services/assistance.service';
 
 @NgModule({
     declarations: [
         AppComponent,
         SignupComponent,
+        CardDetailsComponent,
         DashboardComponent,
         HomeComponent,
         ProfileComponent,
@@ -27,7 +30,7 @@ import { ProfileComponent } from './components/profile/profile.component';
         HttpClientModule,
         AppRoutingModule,
     ],
-    providers: [AuthGuardService, AuthenticationService],
+    providers: [AuthGuardService, AuthenticationService, AssistanceService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

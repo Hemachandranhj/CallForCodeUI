@@ -1,3 +1,8 @@
 <div class="jumbotron">
-    <h1 class="display-4">Assistance requests</h1>
+    <div *ngIf="error" class="alert-danger">{{displayErrorText(error)}}</div>
+    <div id="volunterDashboard">
+        <h3 id="title" class="bg-dark text-white pl-4"><span class="badge badge-dark text-white">People in need</span></h3>
+        <hr size="10" class="bg-white">
+        <app-card-details [assistanceDetails]="assistanceDetails"></app-card-details>
+    </div>
 </div>
