@@ -1,8 +1,8 @@
 <div class="jumbotron">
     <div *ngIf="error" class="alert-danger">{{displayErrorText(error)}}</div>
     <div id="volunterDashboard">
-        <h3 id="title" class="bg-dark text-white pl-4"><span class="badge badge-dark text-white">People in need</span></h3>
-        <hr size="10" class="bg-white">
+        <h2 id="title" class="text-white pl-4"><span class="text-secondary">People in need</span></h2>
+        <hr size="10" class="bg-secondary">
         <app-card-details [assistanceDetails]="assistanceDetails"></app-card-details>
     </div>
 </div>

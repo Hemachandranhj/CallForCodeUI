@@ -1,4 +1,4 @@
-<div class="container bg-dark">
+<div class="container">
     <div class="clear"></div>
     <div *ngIf="assistanceDetails?.length == 0">
         <h6 class="text-white mt-5 ml-3 align-middle">No assistance required at this moment.</h6>
@@ -8,30 +8,23 @@
     <div *ngIf="assistanceDetails?.length >= 0">
         <div class="row mx-auto">
             <div class="col-sm-3 card-group mt-3" *ngFor="let assistanceDetail of assistanceDetails">
-                <div class="card assistance-card">
-                    <div class="card-header bg-secondary">                        
-                        <h5 class="card-title text-white text-justify lead pt-3">
-                            <strong>
-                                <blockquote>{{assistanceDetail.name}}</blockquote>                                
-                            </strong>
-                        </h5>
-                    </div>
-                    <div class="card-body bg-dark">
-                        <p *ngIf="assistanceDetail.itemRequested" class="card-text text-warning text-justify">
-                            <small>{{assistanceDetail.itemRequested}}</small>
-                        </p>                                                
-                        <span *ngIf="assistanceDetail.address" class="card-text text-white text-justify">
-                            <small>{{assistanceDetail.address}}</small>
+                <div class="card assistance-card border-info mb-3" style="max-width: 18rem;">
+                    <div class="card-header">{{assistanceDetail.name}}</div>
+                    <div class="card-body">
+                        <h6 *ngIf="assistanceDetail.itemRequested" class="card-title">{{assistanceDetail.itemRequested}}</h6>
+
+                        <span *ngIf="assistanceDetail.address" class="card-text">
+                            Address: {{assistanceDetail.address}}
                         </span>
-                        <p *ngIf="assistanceDetail.phone" class="card-text text-white text-justify">
-                            <small>{{assistanceDetail.phone}}</small>
+                        <p *ngIf="assistanceDetail.phone" class="card-text">
+                            Phone No: {{assistanceDetail.phone}}
                         </p>
-                        <p *ngIf="assistanceDetail.date" class="card-text text-white text-justify">
-                            <small>{{assistanceDetail.date}}</small>
+                        <p *ngIf="assistanceDetail.date" class="card-text">
+                            Date: <small>{{assistanceDetail.date}}</small>
                         </p>
                     </div>
-                    <div class="card-footer bg-dark">
-                        <button *ngIf="!assistanceDetail.isActioned" type="button" class="btn btn-outline-light btn-sm bg-dark text-white favorite-btn d-block mx-auto"
+                    <div class="card-footer">
+                        <button *ngIf="!assistanceDetail.isActioned" type="button" class="btn btn-outline-light bg-primary text-white"
                             (click)="accepted(assistanceDetail)">Accept</button>
                         <button *ngIf="assistanceDetail.isActioned" type="button" class="btn btn-outline-danger btn-sm bg-dark text-white unfavorite-btn d-block mx-auto"
                             (click)="reject(assistanceDetail)">Accepted</button>

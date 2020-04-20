@@ -6,15 +6,19 @@ import { Observable } from "rxjs"
 import { IAssistanceDetail } from "../models/assistance.interface";
 import { AssistanceDetail } from "../models/assistance.model";
 import { environment } from "../../environments/environment";
+import { DatePipe } from '@angular/common';
 
 @Injectable()
 export class AssistanceService {
+
+    pipe = new DatePipe('en-US');
 
     apiUrl = environment.apiBaseUrl + "/assistance/";;
 
     httpOptions = {
         headers: new HttpHeaders({
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:4200'
         })
     };
 
@@ -45,7 +49,7 @@ export class AssistanceService {
     // method to map the assistance request results
     private mapAssistanceRequest(response: any): AssistanceDetail[] {
         const assistanceDetail = [];
-        response.forEach((item: any) => {
+        response.result.forEach((item: any) => {
             assistanceDetail.push(this.mapAssistanceDetail(item));
         });
         return assistanceDetail;
@@ -56,11 +60,12 @@ export class AssistanceService {
         var assistanceDetail = new AssistanceDetail();
         assistanceDetail.id = data._id;
         assistanceDetail.isActioned = data.isActioned;
-        assistanceDetail.date = data.date;
+        assistanceDetail.date = this.pipe.transform(data.date, 'short');
         assistanceDetail.name = data.name;
         assistanceDetail.phone = data.phone;
         assistanceDetail.itemRequested = data.itemRequested;
         assistanceDetail.tag = data.tag;
+        assistanceDetail.address = data.address;
         return assistanceDetail;
     }
 }

@@ -5,6 +5,6 @@ export interface IAssistanceDetail {
     phone: string,
     itemRequested: string,
     address: string,
-    date: Date,
+    date: string,
     tag: []
 }
