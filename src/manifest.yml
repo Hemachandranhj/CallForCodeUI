@@ -1,0 +1,10 @@
+applications:
+- buildpacks: 
+  - staticfile_buildpack  
+  instances: 1
+  memory: 128M
+  name: assistanceportal
+  random-route: true
+  routes:
+  - route: assistanceportal.eu-gb.cf.appdomain.cloud
+  timeout: 180
