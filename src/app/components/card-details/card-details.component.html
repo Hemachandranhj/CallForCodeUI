@@ -26,7 +26,7 @@
                     <div class="card-footer">
                         <button *ngIf="!assistanceDetail.isActioned" type="button" class="btn btn-outline-light text-white" [ngStyle]="{'background-color':assistanceDetail.tag[0] === 'Essentials' ? 'rgb(2, 117, 216)' : 'rgb(240, 173, 78)' }"
                             (click)="accepted(assistanceDetail)">Accept</button>
-                        <button *ngIf="assistanceDetail.isActioned" type="button" class="btn btn-outline-danger btn-sm bg-dark text-white unfavorite-btn d-block mx-auto"
+                        <button *ngIf="assistanceDetail.isActioned" type="button" class="btn btn-outline-danger bg-success text-white unfavorite-btn"
                             (click)="reject(assistanceDetail)">Accepted</button>
                     </div>
                 </div>
