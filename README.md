@@ -35,7 +35,7 @@ Providing a web portal for Volunteers to find people who need help and for elder
 
 ## The architecture
 
-![Video transcription/translation app](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Architecture.PNG)
+![Architecture](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Architecture.PNG)
 
 1. Elderly/Vulnerable users sends a text message for assistance to Twilio Programmable phone numbers.
 2. Text message is forwarded to the NodeJS Web Service using Twilio Web hooks.
@@ -47,7 +47,7 @@ Both Web Portal and Web service is protected using IBM APP Id.
 
 ## Long description
 
-[More detail is available here](https://github.com/Hemachandranhj/CallForCodeNode/blob/master/README.md)
+[More detail is available here](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/description.md)
 
 ## Project roadmap
 
