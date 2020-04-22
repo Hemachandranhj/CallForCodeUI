@@ -52,9 +52,13 @@ Application flow comprises of two stages
 ![Acceptance](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/acknowledgement.jpg)
 
 
+## Why we are better?
 
+1. This application can be used for any pandemic/any volunteering events
 
+2. Solution has beend designing considering people with less exposure to digital technologies.
 
+3. There is no such portal exist to connect volunteers and people with needs.
 
 
 
