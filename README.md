@@ -55,11 +55,11 @@ Both Web Portal and Web service is protected using IBM APP Id.
 
 ## Project roadmap
 
-![Roadmap](roadmap.jpg)
+![Roadmap](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Roadmap.PNG)
 
 ## Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
