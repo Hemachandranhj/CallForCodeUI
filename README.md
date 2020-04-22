@@ -61,8 +61,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-1.NodejS
-2.Web Service set up and running locally.Follow the steps mentioned [here](https://github.com/Hemachandranhj/CallForCodeNode/blob/master/README.md)
+1. NodejS
+2. Web Service set up and running locally.Follow the steps mentioned [here](https://github.com/Hemachandranhj/CallForCodeNode/blob/master/README.md)
 
 ### Installing
 
