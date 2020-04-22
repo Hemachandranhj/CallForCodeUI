@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { UserState } from "./models/user-state.model";
 import { AuthenticationService } from "./services/authentication.service";
-import { Router, ROUTES } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
 
 @Component({
     selector: "app-root",
@@ -17,8 +15,7 @@ export class AppComponent implements OnInit {
     isUserLoggedIn = false;
     userState: UserState;
 
-    constructor(private authService: AuthenticationService,
-        private router: Router) {
+    constructor(private authService: AuthenticationService) {
         this.authService.currentUser.subscribe((x) => {
             this.userState = x;
             if (this.userState && this.userState.logged) {
@@ -33,9 +30,6 @@ export class AppComponent implements OnInit {
         this.logoutUrl = environment.apiBaseUrl + "/auth/logout";
     }
 
-    redirctToProfile() {
-        this.router.navigate(["profile"]);
-    }
     logout() {
         this.authService.logout();
         window.location.href = this.logoutUrl;
