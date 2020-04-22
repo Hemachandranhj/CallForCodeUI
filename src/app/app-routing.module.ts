@@ -4,9 +4,11 @@ import { SignupComponent } from "./components/signup/signup.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { HomeComponent } from "./components/home/home.component";
 import { AuthGuardService } from "./services/auth-guard.service";
+import { ProfileComponent } from "./components/profile/profile.component";
 
 const routes: Routes = [
     { path: "signup", component: SignupComponent },
+    { path: "profile", component: ProfileComponent },
     {
         path: "dashboard",
         component: DashboardComponent,

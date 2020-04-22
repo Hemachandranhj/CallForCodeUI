@@ -10,9 +10,10 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { AuthGuardService } from "./services/auth-guard.service";
 import { AuthenticationService } from "./services/authentication.service";
 import { HomeComponent } from "./components/home/home.component";
-import { CardDetailsComponent } from './components/card-details/card-details.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { AssistanceService } from './services/assistance.service';
+import { CardDetailsComponent } from "./components/card-details/card-details.component";
+import { ProfileComponent } from "./components/profile/profile.component";
+import { AssistanceService } from "./services/assistance.service";
+import { ProfileService } from "./services/profile.service";
 
 @NgModule({
     declarations: [
@@ -30,7 +31,12 @@ import { AssistanceService } from './services/assistance.service';
         HttpClientModule,
         AppRoutingModule,
     ],
-    providers: [AuthGuardService, AuthenticationService, AssistanceService],
+    providers: [
+        AuthGuardService,
+        AuthenticationService,
+        AssistanceService,
+        ProfileService,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

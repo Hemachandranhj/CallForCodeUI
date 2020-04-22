@@ -13,6 +13,7 @@ import { AuthenticationService } from "src/app/services/authentication.service";
 export class ProfileComponent implements OnInit {
     profileForm: FormGroup;
     submitted = false;
+    profileExists = false;
     userProfile: UserProfile = new UserProfile();
 
     constructor(
@@ -26,13 +27,10 @@ export class ProfileComponent implements OnInit {
         this.initializeForm();
         this.subscribeForValueChanges();
 
-        this.authService.isAuthenticated().pipe(
-            map((user) => {
-                if (user && user.logged) {
-                    this.populateProfile(user.loggedInAs.email);
-                }
-            })
-        );
+        const userState = this.authService.getAuthenticatedUser();
+        if (userState) {
+            this.populateProfile(userState.loggedInAs.email);
+        }
     }
 
     // convenience getter for easy access to form fields
@@ -94,41 +92,53 @@ export class ProfileComponent implements OnInit {
         } else {
             const profileRequest = this.userProfile;
 
-            this.profileService
-                .submitProfile(profileRequest)
-                .pipe(first())
-                .subscribe(
-                    (data) => {
-                        //this.alertService.success('Registration successful', true);
-                        this.router.navigate(["/dashboard"]);
-                    },
-                    (error) => {
-                        console.log("Error submitting profile " + error);
-                        // this.alertService.error(error);
-                        // this.loading = false;
-                    }
-                );
+            if (this.profileExists) {
+                this.profileService
+                    .put(profileRequest)
+                    .pipe(first())
+                    .subscribe(
+                        (data) => {
+                            this.router.navigate(["/dashboard"]);
+                        },
+                        (error) => {
+                            console.log("Error submitting profile " + error);
+                        }
+                    );
+            } else {
+                this.profileService
+                    .post(profileRequest)
+                    .pipe(first())
+                    .subscribe(
+                        (data) => {
+                            this.router.navigate(["/dashboard"]);
+                        },
+                        (error) => {
+                            console.log("Error submitting profile " + error);
+                        }
+                    );
+            }
         }
     }
 
     private populateProfile(email: string) {
-        const userProfile$ = this.profileService.getProfile(email);
-
-        const profileDetail$ = userProfile$.pipe(
-            map((profile) => {
-                this.firstNameControl.setValue(profile.firstName);
-                this.lastNameControl.setValue(profile.lastName);
-                this.emailControl.setValue(profile.email);
-                this.contactNumberControl.setValue(profile.contactNumber);
-                this.addressLine1Control.setValue(profile.AddressLine1);
-                this.addressLine2Control.setValue(profile.AddressLine2);
-                this.addressLine3Control.setValue(profile.AddressLine3);
-                this.cityControl.setValue(profile.city);
-                this.countryControl.setValue(profile.country);
-                this.postCodeControl.setValue(profile.postCode);
-                return profile;
-            })
-        );
+        const userProfile$ = this.profileService
+            .getProfile(email.toLowerCase())
+            .subscribe((profile) => {
+                if (profile) {
+                    this.firstNameControl.setValue(profile.firstName);
+                    this.lastNameControl.setValue(profile.lastName);
+                    this.emailControl.setValue(profile.email);
+                    this.contactNumberControl.setValue(profile.contactNumber);
+                    this.addressLine1Control.setValue(profile.AddressLine1);
+                    this.addressLine2Control.setValue(profile.AddressLine2);
+                    this.addressLine3Control.setValue(profile.AddressLine3);
+                    this.cityControl.setValue(profile.city);
+                    this.countryControl.setValue(profile.country);
+                    this.postCodeControl.setValue(profile.postCode);
+                    this.profileExists = true;
+                    // return profile;
+                }
+            });
     }
 
     private subscribeForValueChanges() {
