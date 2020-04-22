@@ -35,7 +35,7 @@ Providing a web portal for Volunteers to find people who need help and for elder
 
 ## Demo video
 
-[![Watch the video](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Helpingpeople.jpg)](https://youtu.be/WU1fLU6ctZw)
+[![Watch the video](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Helpingpeople.jpg)](https://youtu.be/Z-7oJPo3yyI)
 
 ## The architecture
 
@@ -43,8 +43,11 @@ Providing a web portal for Volunteers to find people who need help and for elder
 
 1. Elderly/Vulnerable users sends a text message for assistance to Twilio Programmable phone numbers.
 2. Text message is forwarded to the NodeJS Web Service using Twilio Web hooks.
-3. Watson Translation (optionally) can translate the text to the desired language.
-4. The app stores the translated text as a document within Object Storage.
+3. Web Service validates the request, Understand whether the request is essential/non essentials by invoking Watson Assistant API.
+4. Request is stored in Mongo DB
+5. Volunteers login to the portal, Picks a request and text message is sent to the Elderly/Vulnerable that assistance is on the way.
+
+Both Web Portal and Web service is protected using IBM APP Id.
 
 ## Long description
 
