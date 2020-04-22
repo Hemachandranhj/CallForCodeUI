@@ -47,7 +47,7 @@ Both Web Portal and Web service is protected using IBM APP Id.
 
 ## Long description
 
-[More detail is available here](DESCRIPTION.md)
+[More detail is available here](https://github.com/Hemachandranhj/CallForCodeNode/blob/master/README.md)
 
 ## Project roadmap
 
