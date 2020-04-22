@@ -18,6 +18,10 @@ export class DashboardComponent implements OnInit {
         this.getassistanceDetails();
     }
 
+    getDetails(): void {
+        this.getassistanceDetails();
+    }
+
     private getassistanceDetails() {
         this.assistanceService.getAssistanceRequest().subscribe((response: any) => {
             this.assistanceDetails = response;
