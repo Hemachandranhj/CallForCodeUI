@@ -1,6 +1,6 @@
 # Helping People in need
 
-[![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https:/https://assistanceportal.eu-gb.cf.appdomain.cloud/)
+[![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://assistanceportal.eu-gb.cf.appdomain.cloud/)
 
 ## Contents
 
