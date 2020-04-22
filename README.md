@@ -35,14 +35,14 @@ Providing a web portal for Volunteers to find people who need help and for elder
 
 ## Demo video
 
-[![Watch the video](https://github.com/Code-and-Response/Liquid-Prep/blob/master/images/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
+[![Watch the video](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Helpingpeople.jpg)](https://youtu.be/WU1fLU6ctZw)
 
 ## The architecture
 
-![Video transcription/translation app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
+![Video transcription/translation app](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Architecture.PNG)
 
-1. The user navigates to the site and uploads a video file.
-2. Watson Speech to Text processes the audio and extracts the text.
+1. Elderly/Vulnerable users sends a text message for assistance to Twilio Programmable phone numbers.
+2. Text message is forwarded to the NodeJS Web Service using Twilio Web hooks.
 3. Watson Translation (optionally) can translate the text to the desired language.
 4. The app stores the translated text as a document within Object Storage.
 
