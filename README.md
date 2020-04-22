@@ -35,7 +35,7 @@ Providing a web portal for Volunteers to find people who need help and for elder
 
 ## Demo video
 
-[![Watch the video](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Helpingpeople.jpg)](https://youtu.be/vOgCOoy_Bx0)
+[![Watch the video](https://github.com/Hemachandranhj/CallForCodeUI/blob/master/assets/Helpingpeople.jpg)](https://youtu.be/WU1fLU6ctZw)
 
 ## The architecture
 
