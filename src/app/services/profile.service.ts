@@ -9,7 +9,8 @@ import { map, catchError } from "rxjs/operators";
 export class ProfileService {
     ProfileServiceUrl = "";
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient
+        ) {
         this.ProfileServiceUrl = environment.apiBaseUrl + "/profile/";
     }
 
@@ -23,11 +24,13 @@ export class ProfileService {
     getProfile(email: string): Observable<UserProfile> {
         let userProfile = { email: email };
 
-      return this.http
+        return this.http
             .get(this.ProfileServiceUrl, { params: userProfile })
-            .pipe(map((response) => {
-                return this.mapUserProfileResponse(response);
-            }));
+            .pipe(
+                map((response) => {
+                    return this.mapUserProfileResponse(response);
+                })
+            );
     }
 
     post(userProfile: UserProfile): Observable<any> {
@@ -71,7 +74,8 @@ export class ProfileService {
             userProfile.city = response.result[0].city;
             userProfile.country = response.result[0].country;
             userProfile.contactNumber = response.result[0].contactNumber;
-        }
+            userProfile.postCode = response.result[0].postCode;
+        } 
         return userProfile;
     }
 }

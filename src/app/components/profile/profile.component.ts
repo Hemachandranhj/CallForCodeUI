@@ -42,11 +42,11 @@ export class ProfileComponent implements OnInit {
         this.profileForm = this.fb.group({
             firstName: ["", [Validators.required]],
             lastName: ["", [Validators.required]],
-            email: ["", [Validators.required]],
+            email: ["", []],
             contactNumber: ["", [Validators.required]],
             addressLine1: ["", [Validators.required]],
-            addressLine2: ["", [Validators.required]],
-            addressLine3: ["", [Validators.required]],
+            addressLine2: ["", []],
+            addressLine3: ["", []],
             city: ["", [Validators.required]],
             country: ["", [Validators.required]],
             postCode: ["", [Validators.required]],
@@ -125,6 +125,15 @@ export class ProfileComponent implements OnInit {
             .getProfile(email.toLowerCase())
             .subscribe((profile) => {
                 if (profile) {
+                    if (!profile.email) {
+                        const userState = this.authService.getAuthenticatedUser();
+                        if (userState && userState.loggedInAs) {
+                            profile.firstName = userState.loggedInAs.name;
+                            profile.email = userState.loggedInAs.email;
+                        }
+                    } else {
+                        this.profileExists = true;
+                    }
                     this.firstNameControl.setValue(profile.firstName);
                     this.lastNameControl.setValue(profile.lastName);
                     this.emailControl.setValue(profile.email);
@@ -135,8 +144,6 @@ export class ProfileComponent implements OnInit {
                     this.cityControl.setValue(profile.city);
                     this.countryControl.setValue(profile.country);
                     this.postCodeControl.setValue(profile.postCode);
-                    this.profileExists = true;
-                    // return profile;
                 }
             });
     }
