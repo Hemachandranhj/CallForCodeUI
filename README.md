@@ -19,7 +19,7 @@
 
 ### What's the problem?
 
-During pandemic, there are many elderly/vulnerable people who need help. There are many volunteers who are ready to help but they dont whom to help
+During pandemic, there are many elderly/vulnerable people who need help. There are many volunteers who are ready to help but they don't know whom to help.
 
 ### How can technology help?
 
